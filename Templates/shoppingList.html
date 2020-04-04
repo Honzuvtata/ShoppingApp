@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Test</title>
+</head>
+<body>
+	<h1>Shopping List</h1>
+	<ul>
+	{% for i in range(0, len) %} 
+	  
+	    <li>{{items[i].name}} - {{items[i].count}} 
+	    <a href="/shoppingList/edit/{{i}}">Edit item</a>
+	{%endfor%} 
+	</ul>
+
+	<form action="" method="POST" name="id1">
+		<p>Add item</p>
+		<p><input type="text" name="item"></p>
+		<p>Add count</p>
+		<p><input type="number" name="count"></p>
+		<p><input type="submit" value="submitButton" name="formId"></p>
+	</form>
+
+</body>
+</html>
