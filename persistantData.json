@@ -1,22 +1,12 @@
 [
     {
-        "name": "slanina",
-        "count": 2
-    },
-    {
-        "name": "raj\u010data",
-        "count": 10
-    },
-    {
-        "name": "jablka",
-        "count": 1
-    },
-    {
-        "name": "kedlubna",
-        "count": 32
-    },
-    {
+        "itemId": "itemId-PAW6KCL8TD",
         "name": "banana",
-        "count": 2
+        "count": 5
+    },
+    {
+        "itemId": "itemId-WX0B8MGP36",
+        "name": "ham",
+        "count": 1230
     }
 ]

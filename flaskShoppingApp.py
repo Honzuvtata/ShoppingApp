@@ -1,7 +1,6 @@
 from flask import Flask, render_template, redirect, url_for, render_template, request
 import logging
 import sys
-import logging
 from storage import addItem, deleteItem, increaseCountBy1, decreaseCountBy1, loadItems
 
 logging.basicConfig(level=logging.DEBUG)
@@ -74,39 +73,37 @@ def shoppingListPost():
     len = 0
     for item in items:
         len += 1
-
     return render_template("shoppingList.html", items=items, len=len)
 
 
-@app.route("/shoppingList/edit/<index>", methods=["GET"])
-def edit(index):
-    index = int(index)
+@app.route("/shoppingList/edit/<itemId>", methods=["GET"])
+def edit(itemId):
     items = loadItems()
-    itemName = items[index]["name"]
-    itemCount = items[index]["count"]
+    for item in items:
+        if item["itemId"] == itemId:
+            itemName = item["name"]
+            itemCount = item["count"]
     return render_template("edit.html", itemName=itemName, itemCount=itemCount)
 
 
-@app.route("/shoppingList/edit/<index>", methods=["POST"])
-def editPut(index):  # TODO rename
+@app.route("/shoppingList/edit/<itemId>", methods=["POST"])
+def editPut(itemId):  # TODO rename
     value = request.form["function"]
     items = loadItems()
-    app.logger.info("------------")
-    app.logger.info(type(index))
-    app.logger.info(value)
     if value == "increase":
-        increaseCountBy1(items[int(index)]["name"])
+        increaseCountBy1(itemId)
     elif value == "decrease":
-        decreaseCountBy1(items[int(index)]["name"])
+        decreaseCountBy1(itemId)
     elif value == "delete":
-        deleteItem(items[int(index)]["name"])
+        deleteItem(itemId)
         return redirect("/shoppingList")
         # return shoppingListGet()
 
-    index = int(index)
     items = loadItems()
-    itemName = items[index]["name"]
-    itemCount = items[index]["count"]
+    for item in items:
+        if item["itemId"] == itemId:
+            itemName = item["name"]
+            itemCount = item["count"]
     return render_template("edit.html", itemName=itemName, itemCount=itemCount)
 
 
