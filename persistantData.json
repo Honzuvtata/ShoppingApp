@@ -4,11 +4,19 @@
         "count": 2
     },
     {
-        "name": "vejce",
-        "count": 20
-    },
-    {
         "name": "raj\u010data",
         "count": 10
+    },
+    {
+        "name": "jablka",
+        "count": 1
+    },
+    {
+        "name": "kedlubna",
+        "count": 30
+    },
+    {
+        "name": "banana",
+        "count": 2
     }
 ]

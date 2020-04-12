@@ -2,15 +2,16 @@
 <html>
 <head>
 	<title>Test</title>
+	<link rel="stylesheet" type="text/css" href="pageTitle.css">
 </head>
 <body>
-	<h1>Shopping List</h1>
+	<h1 id="header">Shopping List</h1>
 	<ul>
 	{% for i in range(0, len) %} 
 	  
-	    <li>{{items[i].name}} - {{items[i].count}} 
+	    <li id="listOfLinks">{{items[i].name}} - {{items[i].count}} 
 	    <a href="/shoppingList/edit/{{i}}">Edit item</a>
-	{%endfor%} 
+	{%endfor%} 	
 	</ul>
 
 	<form action="" method="POST" name="id1">
