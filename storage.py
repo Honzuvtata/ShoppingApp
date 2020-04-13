@@ -25,7 +25,7 @@ def addItem(itemName, itemCount):
     writeItems(items)
 
 
-def increaseCountBy1(itemId):
+def increaseCountBy1(itemId, count=1):
     items = loadItems()
     for item in items:
         print(type(item))
@@ -65,9 +65,5 @@ def loadItems():
         return data
 
 
-# writeItems({"itemId": "id-WAPWXFSXVO", "name": "apple", "count": 1})
-loadedItems = loadItems()
-print(type(loadedItems))
-print(loadedItems)
-# print(loadedItems["itemId"])
-increaseCountBy1("id-WAPWXFSXVO")
+def checkDupliates(itemName):
+    pass

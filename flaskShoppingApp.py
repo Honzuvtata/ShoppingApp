@@ -63,13 +63,16 @@ def shoppingListGet():
 
 @app.route("/shoppingList", methods=["POST"])
 def shoppingListPost():
-
-    item = request.form["item"]
-    app.logger.info(item)
-    count = request.form["count"]
-    app.logger.info(count)
-    addItem(item, count)
-    items = loadItems()
+    # TODO: Fix: submit button sended without values crashes
+    try:
+        item = request.form["item"]
+        app.logger.info(item)
+        count = request.form["count"]
+        app.logger.info(count)
+        addItem(item, count)
+        items = loadItems()
+    except:
+        app.logger.info("ERROE: User submitted empty field")
     len = 0
     for item in items:
         len += 1
@@ -78,6 +81,7 @@ def shoppingListPost():
 
 @app.route("/shoppingList/edit/<itemId>", methods=["GET"])
 def edit(itemId):
+    # show item with sended itemId
     items = loadItems()
     for item in items:
         if item["itemId"] == itemId:
@@ -88,6 +92,7 @@ def edit(itemId):
 
 @app.route("/shoppingList/edit/<itemId>", methods=["POST"])
 def editPut(itemId):  # TODO rename
+    # Find what button user used
     value = request.form["function"]
     items = loadItems()
     if value == "increase":
@@ -100,6 +105,7 @@ def editPut(itemId):  # TODO rename
         # return shoppingListGet()
 
     items = loadItems()
+    # Shou item with sended itemId
     for item in items:
         if item["itemId"] == itemId:
             itemName = item["name"]

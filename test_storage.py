@@ -11,3 +11,6 @@ class TestStorage(unittest.TestCase):
     def test_generateIdIdPrefix(self):
         randomId = generateId()
         self.assertEqual(randomId[0:3], "id-")
+
+    
+    test

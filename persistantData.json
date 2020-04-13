@@ -2,11 +2,21 @@
     {
         "itemId": "itemId-PAW6KCL8TD",
         "name": "banana",
-        "count": 5
+        "count": 7
     },
     {
         "itemId": "itemId-WX0B8MGP36",
         "name": "ham",
         "count": 1230
+    },
+    {
+        "itemId": "itemId-MMWSNYRZ4F",
+        "name": "joghurt",
+        "count": 4
+    },
+    {
+        "itemId": "itemId-XMB8WQO05Y",
+        "name": "milk",
+        "count": 4
     }
 ]
