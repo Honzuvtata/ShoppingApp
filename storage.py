@@ -19,6 +19,14 @@ def generateId(size=10, chars=string.ascii_uppercase + string.digits):
 
 
 def addItem(itemName, itemCount):
+    duplicity = checkDuplicity(itemName)
+    if duplicity == False:
+        writeItemToList(itemName, itemCount)
+    else:
+        increaseCountBy1(duplicity, itemCount)
+
+
+def writeItemToList(itemName, itemCount):
     itemId = generateId()
     items = loadItems()
     items.append({"itemId": itemId, "name": itemName, "count": int(itemCount)})
@@ -31,7 +39,7 @@ def increaseCountBy1(itemId, count=1):
         print(type(item))
         print(item["itemId"], "LOG!!!!!!!!!!!!")
         if item["itemId"] == itemId:
-            item["count"] += 1
+            item["count"] = item["count"] + count
     writeItems(items)
 
 
@@ -54,13 +62,13 @@ def deleteItem(itemId):
 
 
 def writeItems(items):
-    with open("persistantData.json", "w") as persistantItems:
+    with open("data\persistantData.json", "w") as persistantItems:
         json.dump(items, persistantItems, indent=4)
         print(items)
 
 
 def loadItems():
-    with open("persistantData.json", "r") as persistantItems:
+    with open("data\persistantData.json", "r") as persistantItems:
         data = json.load(persistantItems)
         return data
 
@@ -74,7 +82,3 @@ def checkDuplicity(itemName):
     return False
 
 
-result = checkDuplicity("ham")
-print("Ham id: ", result)
-result2 = checkDuplicity("aaaaa")
-print("Nonexisting item id: ", result2)

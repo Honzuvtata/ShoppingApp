@@ -65,15 +65,15 @@ def shoppingListGet():
 def shoppingListPost():
     # TODO: Fix: submit button sended without values crashes
     try:
-        item = request.form["item"]
-        app.logger.info(item)
+        itemName = request.form["item"]
+        app.logger.info(itemName)
         count = request.form["count"]
         app.logger.info(count)
-        addItem(item, count)
-        items = loadItems()
+        addItem(itemName, count)
     except:
         app.logger.info("ERROE: User submitted empty field")
     len = 0
+    items = loadItems()
     for item in items:
         len += 1
     return render_template("shoppingList.html", items=items, len=len)
