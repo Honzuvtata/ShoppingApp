@@ -1,15 +1,5 @@
 [
     {
-        "itemId": "itemId-PAW6KCL8TD",
-        "name": "banana",
-        "count": 7
-    },
-    {
-        "itemId": "itemId-WX0B8MGP36",
-        "name": "ham",
-        "count": 1230
-    },
-    {
         "itemId": "itemId-MMWSNYRZ4F",
         "name": "joghurt",
         "count": 4
@@ -22,16 +12,31 @@
     {
         "itemId": "itemId-N82MLLPGXS",
         "name": "apple",
-        "count": 3
+        "count": 4
     },
     {
         "itemId": "itemId-PODE4WXBTZ",
         "name": "holyWater",
-        "count": 3
+        "count": 5
     },
     {
         "itemId": "itemId-DJHS94GWJW",
         "name": "hermelin",
         "count": 2
+    },
+    {
+        "itemId": "itemId-3U4RH9YVBW",
+        "name": "ham",
+        "count": 14
+    },
+    {
+        "itemId": "itemId-SVSW2ZI79H",
+        "name": "banana",
+        "count": 1
+    },
+    {
+        "itemId": "itemId-O5HEJ4OBXR",
+        "name": "banan",
+        "count": 8
     }
 ]

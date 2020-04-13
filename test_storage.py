@@ -23,4 +23,15 @@ class TestStorage(unittest.TestCase):
 
     def test_checkDuplicityNameNonExisting(self):
         result = storage.checkDuplicity("aaaaa")
-        self.assertEqual(result, False)
+        self.assertEqual(result, None)
+
+    def test_addExistingItemToShoppingList(self):
+        itemName = "ham"
+        count = 2
+        result = storage.addItem(itemName, count)
+        print(result)
+
+
+
+    if __name__ == "__main__":
+    

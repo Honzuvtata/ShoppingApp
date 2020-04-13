@@ -19,11 +19,11 @@ def generateId(size=10, chars=string.ascii_uppercase + string.digits):
 
 
 def addItem(itemName, itemCount):
-    duplicity = checkDuplicity(itemName)
-    if duplicity == False:
-        writeItemToList(itemName, itemCount)
+    duplicitId = checkDuplicity(itemName)
+    if duplicitId:
+        increaseCountBy1(duplicitId, itemCount)
     else:
-        increaseCountBy1(duplicity, itemCount)
+        writeItemToList(itemName, itemCount)
 
 
 def writeItemToList(itemName, itemCount):
@@ -39,6 +39,7 @@ def increaseCountBy1(itemId, count=1):
         print(type(item))
         print(item["itemId"], "LOG!!!!!!!!!!!!")
         if item["itemId"] == itemId:
+            #item["count"] += 1
             item["count"] = item["count"] + count
     writeItems(items)
 
@@ -67,8 +68,8 @@ def writeItems(items):
         print(items)
 
 
-def loadItems():
-    with open("data\persistantData.json", "r") as persistantItems:
+def loadItems(databasePath="data\persistantData.json"):
+    with open(databasePath, "r") as persistantItems:
         data = json.load(persistantItems)
         return data
 
@@ -79,6 +80,4 @@ def checkDuplicity(itemName):
         if item["name"] == itemName:
             itemId = item["itemId"]
             return itemId
-    return False
-
-
+    return None
