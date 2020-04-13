@@ -13,4 +13,3 @@ class TestStorage(unittest.TestCase):
         self.assertEqual(randomId[0:3], "id-")
 
     
-    test

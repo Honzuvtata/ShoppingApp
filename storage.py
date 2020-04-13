@@ -65,5 +65,16 @@ def loadItems():
         return data
 
 
-def checkDupliates(itemName):
-    pass
+def checkDuplicity(itemName):
+    items = loadItems()
+    for item in items:
+        if item["name"] == itemName:
+            itemId = item["itemId"]
+            return itemId
+    return False
+
+
+result = checkDuplicity("ham")
+print("Ham id: ", result)
+result2 = checkDuplicity("aaaaa")
+print("Nonexisting item id: ", result2)
