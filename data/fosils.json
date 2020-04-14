@@ -1,0 +1,18 @@
+delveEnviroments = {
+    "Mines": {
+        "fosilName": "Metallic Fossil",
+        "fosilPrice": "None"
+    },
+    {
+        "fosilName": "Serrated Fossil	",
+        "fosilPrice": "None"
+    },
+    {
+        "fosilName": "Pristine Fossil	",
+        "fosilPrice": "None"
+    },
+    {
+        "fosilName": "Aetheric Fossil",
+        "fosilPrice": "None"
+    }
+}
