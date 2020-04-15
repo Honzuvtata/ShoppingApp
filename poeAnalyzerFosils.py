@@ -6,7 +6,7 @@ import json
 import pprint
 import pdb
 
-
+"""
 delveEnvironments = {
     "Mines": [
         "Metallic Fossil",
@@ -54,37 +54,49 @@ delveEnvironments = {
         "Encrusted Fossil",
     ],
 }
+"""
+
+
+# read data from file
+def readDataFromFolder():
+    pythondata = ""
+    with open("data/fossils.json", "r") as f:
+        pythonDict = json.load(f)
+        print(type(pythonDict))
+        print("data loaded from file")
+        # print(pythonDict)
+        return pythonDict
 
 
 def requestData():
-    # send request to get complete data from poe (all stash tabs from all players)
+    # send request to get average fosil prices from poe.ninja
     stringRequest = requests.get(
         "https://poe.ninja/api/data/itemoverview?league=Delirium&type=Fossil&language=en"
     )
+    pythonObject = json.loads(stringRequest.text)
     print("Response from POE server: ", stringRequest)
     print("Type of data from server: ", type(stringRequest.text))
-    pythonObject = json.loads(stringRequest.text)
     print(type(pythonObject))
     return pythonObject
 
 
-def getValueOfFossil(fossilName,):
-    for fossil in fossilData["lines"]:
+def getValueOfFossil(fossilName, poeNinjaData):
+    for fossil in poeNinjaData["lines"]:
         if fossilName == fossil["name"]:
             chaosValue = fossil["chaosValue"]
             return chaosValue
 
 
-def matchEnviromentsNamesValues():
+def matchEnviromentsNamesValues(delveEnvironments, urlData):
     results = {}
     for environmentName, environmentValues in delveEnvironments.items():
-        fossilsNamesValues = []
+        fossilsNameValues = []
         # print(environmentName, environmentValues)
         for fossil in environmentValues:
-            fossilValue = getValueOfFossil(fossil)
-            fossilsNamesValues.append({"name": fossil, "chaosValue": fossilValue})
-        results[environmentName] = fossilsNamesValues
-        fossilsNamesValues = []
+            fossilValue = getValueOfFossil(fossil, poeNinjaData)
+            fossilsNameValues.append({"name": fossil, "chaosValue": fossilValue})
+        results[environmentName] = fossilsNameValues
+        fossilsNameValues = []
     return results
 
 
@@ -106,8 +118,9 @@ def findAverageProfitPerEnvironment(fossilsEnvironmentNamesAndValues):
     return results
 
 
-fossilData = requestData()
-fossilsNamesAndValues = matchEnviromentsNamesValues()
-pprint.pprint(fossilsNamesAndValues)
-x = findAverageProfitPerEnvironment(fossilsNamesAndValues)
-print(x)
+delveEnvironments = readDataFromFolder()
+poeNinjaData = requestData()
+fossilsNamesAndValues = matchEnviromentsNamesValues(delveEnvironments, poeNinjaData)
+# pprint.pprint(fossilsNamesAndValues)
+averageProfit = findAverageProfitPerEnvironment(fossilsNamesAndValues)
+pprint.pprint(averageProfit)

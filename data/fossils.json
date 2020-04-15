@@ -1,0 +1,47 @@
+{
+    "Mines": [
+        "Metallic Fossil",
+        "Serrated Fossil",
+        "Pristine Fossil",
+        "Aetheric Fossil"
+    ],
+    "Fungal Caverns": [
+        "Dense Fossil",
+        "Aberrant Fossil",
+        "Perfect Fossil",
+        "Corroded Fossil",
+        "Gilded Fossil"
+    ],
+    "Petrified Forest": [
+        "Bound Fossil",
+        "Jagged Fossil",
+        "Corroded Fossil",
+        "Sanctified Fossil"
+    ],
+    "Abyssal Depths": [
+        "Aberrant Fossil",
+        "Bound Fossil",
+        "Gilded Fossil",
+        "Lucent Fossil"
+    ],
+    "Frozen Hollow": [
+        "Frigid Fossil",
+        "Serrated Fossil",
+        "Prismatic Fossil",
+        "Sanctified Fossil"
+    ],
+    "Magma Fissure": [
+        "Scorched Fossil",
+        "Prismatic Fossil",
+        "Pristine Fossil",
+        "Enchanted Fossil",
+        "Encrusted Fossil",
+        "Faceted Fossil"
+    ],
+    "Sulfur Vents": [
+        "Metallic Fossil",
+        "Perfect Fossil",
+        "Aetheric Fossil",
+        "Encrusted Fossil"
+    ]
+}
