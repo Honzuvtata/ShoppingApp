@@ -15,4 +15,7 @@
         "-p",
         "test_*.py"
     ],
+    "cSpell.words": [
+        "Enviroments"
+    ],
 }

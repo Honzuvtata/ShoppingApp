@@ -18,3 +18,23 @@ def doubleIt(a = 0, x=2):
 
 doubleIt()
 doubleIt(x=3)
+
+x = {}
+a, b ,c = "numbreList", "name", "Honza"
+y = {a: {b: c}}
+
+
+x[list] = y
+
+print("print x", x)
+
+
+for item in x:
+    print("item: ",item)
+
+
+users = {"user": {"name": "Honza"}}
+
+print(users)
+for item in users.items():
+    print(item)
