@@ -2,11 +2,16 @@ from flask import Flask, render_template, redirect, url_for, render_template, re
 import logging
 import sys
 from storage import addItem, deleteItem, increaseCountBy1, decreaseCountBy1, loadItems
+from poeAnalyzerFosils import analyzeFossils
+
+# from flask_bootstrap import Bootstrap
+
 
 logging.basicConfig(level=logging.DEBUG)
 
 
 app = Flask(__name__)
+# Bootstrap(app)
 
 
 @app.route("/", methods=["GET"])
@@ -101,6 +106,7 @@ def editPut(itemId):  # TODO rename
         decreaseCountBy1(itemId)
     elif value == "delete":
         deleteItem(itemId)
+
         return redirect("/shoppingList")
         # return shoppingListGet()
 
@@ -113,8 +119,34 @@ def editPut(itemId):  # TODO rename
     return render_template("edit.html", itemName=itemName, itemCount=itemCount)
 
 
+@app.route("/fossils", methods=["GET"])
+def fossilsGetList():  # TODO rename
+    # Shou item with sended itemId
+    fossilsPrice = analyzeFossils()
+    return render_template(
+        "fossils.html", fossilsPrice=fossilsPrice, len=len(fossilsPrice)
+    )
+    pass
+
+
+@app.route("/cv", methods=["GET"])
+def CV():
+    return render_template("cv.html")
+
+
+@app.route("/test", methods=["GET"])
+def test():
+    return render_template("test.html")
+
+
+@app.route("/playground", methods=["GET"])
+def playground():
+    return render_template("playground.html")
+
+
 # Stes debug to 1. In debug mode server will update data after every change
 
 # this line starts server with parameter debug=True.
 if __name__ == "__main__":
-    app.run(debug=True)
+    # app.run(debug=False)  # (debug=True)
+    app.run(host="0.0.0.0")  # (debug=True)

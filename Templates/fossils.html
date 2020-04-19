@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+{% block content %}
+<div>
+    <h1>Delve environments - average profit</h1>
+    <ul>
+        {% for i in range(0, len) %}
+        {{fossilsPrice[i]["name"]}} - {{fossilsPrice[i]["averageChaosProfit"]}}
+        <br>
+        {%endfor%}
+    </ul>
+</div>
+
+{% endblock  content %}

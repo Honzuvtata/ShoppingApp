@@ -1,20 +1,15 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title></title>
-</head>
-<body>
+{% extends "layout.html" %}
+{% block content %}
 
 <h1>Product details</h1>
 
-<p>Name:  {{itemName}}</p>
+<p>Name: {{itemName}}</p>
 <p>Count: {{itemCount}}</p>
 
-<form action="#" method="POST">	
-<button type="submit" name="function" value="increase"> +1 </button>
-<button type="submit" name="function" value="decrease"> -1 </button>
-<button type="submit" name="function" value="delete"> DELETE </button>
+<form action="#" method="POST">
+	<button type="submit" name="function" value="increase"> +1 </button>
+	<button type="submit" name="function" value="decrease"> -1 </button>
+	<button type="submit" name="function" value="delete"> DELETE </button>
 </form>
-<a href="/shoppingList">Back to shopping list</a>
-</body>
-</html>
+
+{% endblock  content %}

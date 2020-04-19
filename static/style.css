@@ -1,0 +1,22 @@
+body{
+    background-color:white;
+}
+
+
+
+
+.block-wrapper {
+    display: flex;
+    justify-content: space-around;
+}
+
+
+
+.block-wrapper > div {
+    width: 30%;
+    border:2px solid darkgrey;
+    padding: 5px;
+    height: 300px;
+
+}
+

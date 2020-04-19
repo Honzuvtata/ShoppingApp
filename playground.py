@@ -1,23 +1,16 @@
-myList = [1, 2, 3]
+x = -5
 
-x = []
-
-y = [x.append(item + 1) for item in myList]
-print(x)
-
-users = [
-    {"name": "Honza", "email": "honza@email.com"},
-    {"name": "Kuba", "email": "kuba@email.com"},
-]
-
-print(users)
-
-name = "Kuba"
-z = [name == user["name"] for user in users]
-print(z)
+print(abs(x))
 
 
-b = "b"
-a = {}
-a[b] = {}
-print(a)
+testResults = [True, True, False]
+
+print(all(testResults))
+
+
+print()
+x = None
+
+print(bool(x))
+
+su = "a"
