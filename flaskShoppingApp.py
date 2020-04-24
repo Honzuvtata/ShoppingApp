@@ -141,12 +141,29 @@ def test():
 
 @app.route("/playground", methods=["GET"])
 def playground():
-    return render_template("playground.html")
+    users = [
+        {"name": "Honza", "email": "honza@email.com"},
+        {"name": "Kuba", "email": "kuba@email.com"},
+        {"name": "Luke", "email": "luke@email.com"},
+    ]
+    player1 = {"name": "Honza", "level": 1, "HP": 10, "weapon": "trainingSword"}
+    x = [1, 2, 3, 4, 5]
+    y = 1
+    z = 2
+    return render_template(
+        "playground.html",
+        x=x,
+        y=y,
+        z=z,
+        users=users,
+        lenOfUsers=len(users),
+        player1=player1,
+    )
 
 
 # Stes debug to 1. In debug mode server will update data after every change
 
 # this line starts server with parameter debug=True.
 if __name__ == "__main__":
-    # app.run(debug=False)  # (debug=True)
+    app.run(debug=True)  # (debug=True)
     app.run(host="0.0.0.0")  # (debug=True)

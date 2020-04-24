@@ -1,39 +1,46 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "layout.html" %}
+{% block content %}
 
-<head>
-    <link rel="stylesheet" type="text/css" href="static/playgroundStylesheet.css">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+<div class="container">
 
-<body>
+    <p>Hello aa {{ x }} there should be variable</p>
 
-    <h1>Hello world!</h>
+    <p> y plus z = {{ y + z}} </p>
+    <p>{{ x }}</p>
 
-        <h2>
-            H2
-        </h2>
-        <h3>h3</h3>
-        <div class="box1>" <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corrupti accusamus, perspiciatis
-            aliquam inventore
-            numquam molestiae sequi tempora sit commodi illo assumenda iusto ducimus similique rem, libero ipsum fugit
-            esse
-            enim?</p>
-        </div>
+    {% for i in range(0, 5) %}
 
-        <div id="main-footer">
-            <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione eius consequatur placeat earum
-                blanditiis accusamus saepe non assumenda pariatur obcaecati neque, id, dolorem fugiat? Ab sint ipsa
-                earum distinctio at. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laborum fugit eveniet
-                earum totam necessitatibus? Autem ex voluptatibus veniam unde, excepturi aspernatur dicta id laudantium
-                ab optio error distinctio corrupti adipisci.
-            </p>
+    {{ x[i] }} <br>
+    {{ x[-1] }} <br>
 
-        </div>
+    {% endfor %}
+    Users
+    {% for i in range(lenOfUsers) %}
+    Name: {{ users[i]["name"] }} <br>
+    Email: {{ users[i]["email"] }} <br>
+    {% endfor %}
 
-</body>
+    {% for i in range(3) %}
 
-</html>
+    Name: {{ player1["name"]}} <br>
+    Level: {{ player1["level"]}} <br>
+    Weapon: {{ player1["weapon"]}} <br>
+
+
+    {% endfor %}
+
+</div>
+
+
+<!-- bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>
+
+{% endblock content %}
