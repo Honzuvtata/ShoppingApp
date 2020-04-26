@@ -1,13 +1,7 @@
 from flask import Flask, render_template, redirect, url_for, render_template, request
-import logging
 import sys
 from storage import addItem, deleteItem, increaseCountBy1, decreaseCountBy1, loadItems
 from poeAnalyzerFosils import analyzeFossils
-
-# from flask_bootstrap import Bootstrap
-
-
-logging.basicConfig(level=logging.DEBUG)
 
 
 app = Flask(__name__)
@@ -24,7 +18,6 @@ def homeGet():
 @app.route("/home", methods=["POST"])
 def homePost():
     x = request.form["itemName"]
-    app.logger.info(x)
     return render_template("home.html")
 
 
@@ -51,7 +44,6 @@ def login():
     user = request.form["nm"]
     with open("persistantData.txt", "w") as f:
         f.write(user)
-    app.logger.info("PRINT1")
     return redirect(url_for("user", usr=user))
 
 
@@ -71,12 +63,10 @@ def shoppingListPost():
     # TODO: Fix: submit button sended without values crashes
     try:
         itemName = request.form["item"]
-        app.logger.info("LOG: itemName: ", itemName)
         itemCount = int(request.form["count"])
-        app.logger.info("LOG: itemCount", itemCount)
         addItem(itemName, itemCount)
     except:
-        app.logger.info("ERROR: User submitted empty field")
+        print("ERROR: User submitted empty field")
     len = 0
     items = loadItems()
     for item in items:
