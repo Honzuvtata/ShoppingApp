@@ -1,16 +1,14 @@
-x = -5
+from flask import Flask
 
-print(abs(x))
-
-
-testResults = [True, True, False]
-
-print(all(testResults))
+app = Flask(__name__)
+# Bootstrap(app)
 
 
-print()
-x = None
+@app.route("/", methods=["GET"])
+@app.route("/home", methods=["GET"])
+def homeGet():
+    return "Hello world"
 
-print(bool(x))
 
-su = "a"
+if __name__ == "__main__":
+    app.run()
