@@ -33,20 +33,6 @@ def testPost():
     return redirect(url_for("/test/<userName>"))
 
 
-@app.route("/login", methods=["GET"])
-def loginPass():
-    return render_template("login.html")
-
-
-@app.route("/")
-@app.route("/login", methods=["POST"])
-def login():
-    user = request.form["nm"]
-    with open("persistantData.txt", "w") as f:
-        f.write(user)
-    return redirect(url_for("user", usr=user))
-
-
 @app.route("/<usr>")
 def user(usr):
     return f"<h1>{usr}</h1>"
