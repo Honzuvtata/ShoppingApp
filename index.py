@@ -17,7 +17,6 @@ def homeGet():
 @app.route("/", methods=["POST"])
 @app.route("/home", methods=["POST"])
 def homePost():
-    x = request.form["itemName"]
     return render_template("home.html")
 
 
@@ -87,7 +86,7 @@ def editPut(itemId):  # TODO rename
         # return shoppingListGet()
 
     items = loadItems()
-    # Shou item with sended itemId
+    # Show item with sended itemId
     for item in items:
         if item["itemId"] == itemId:
             itemName = item["name"]
@@ -102,7 +101,6 @@ def fossilsGetList():  # TODO rename
     return render_template(
         "fossils.html", fossilsPrice=fossilsPrice, len=len(fossilsPrice)
     )
-    pass
 
 
 @app.route("/cv", methods=["GET"])
